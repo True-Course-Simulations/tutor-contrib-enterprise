@@ -34,24 +34,27 @@ setup(
     },
     license="AGPLv3",
     author="Sofiane Bebert",
-    description="enterprise plugin for Tutor",
+    maintainer="Cannon Smith",
+    maintainer_email="cannon@tcsims.com",
+    description="A Tutor plugin for Open edX Enterprise features (Sumac / Tutor v16+ compatible)",
     long_description=load_readme(),
     packages=find_packages(exclude=["tests*"]),
     include_package_data=True,
-    python_requires=">=3.6",
-    install_requires=["tutor>=13.0.0,<14.0.0"],
-    entry_points={"tutor.plugin.v0": ["enterprise = tutorenterprise.plugin"]},
+    python_requires=">=3.10",
+    install_requires=["tutor>=16.0.0"],
+    entry_points={
+        "tutor.plugin.v1": [
+            "enterprise = tutorenterprise.plugin"
+        ]
+    },
     classifiers=[
-        "Development Status :: 3 - Alpha",
+        "Development Status :: 4 - Beta",
         "Intended Audience :: Developers",
         "License :: OSI Approved :: GNU Affero General Public License v3",
         "Operating System :: OS Independent",
         "Programming Language :: Python",
-        "Programming Language :: Python :: 3.5",
-        "Programming Language :: Python :: 3.6",
-        "Programming Language :: Python :: 3.7",
-        "Programming Language :: Python :: 3.8",
-        "Programming Language :: Python :: 3.9",
         "Programming Language :: Python :: 3.10",
+        "Programming Language :: Python :: 3.11",
+        "Programming Language :: Python :: 3.12",
     ],
 )

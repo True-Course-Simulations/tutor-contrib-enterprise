@@ -3,4 +3,4 @@
     "from django.contrib.auth import get_user_model;\
     get_user_model().objects.filter(username='{{ ENTERPRISE_USER }}').exclude(email='{{ ENTERPRISE_USER }}@openedx').update(email='{{ ENTERPRISE_USER }}@openedx')"
 
-./manage.py lms manage_user enterprise {{ ENTERPRISE_USER }}@openedx --staff --superuser --unusable-password
+./manage.py lms manage_user {{ ENTERPRISE_USER }} {{ ENTERPRISE_USER }}@openedx --staff --superuser --unusable-password
