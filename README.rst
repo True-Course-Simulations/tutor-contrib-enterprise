@@ -1,7 +1,7 @@
 enterprise plugin for `Tutor <https://docs.tutor.overhang.io>`__
 ================================================================
 
-Original plugin by Dicey-Tech. Updated and maintained by Cannon Smith for Tutor v16+ compatibility.
+Original plugin by Dicey-Tech. Updated and maintained by Cannon Smith for Tutor v19+ compatibility.
 
 This lightweight plugin exposes the LMS Enterprise Django apps in Tutor-based Open edX deployments.
 It turns on the enterprise feature flag, configures default settings/URLs, and creates a dedicated

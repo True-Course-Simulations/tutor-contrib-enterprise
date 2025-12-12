@@ -7,5 +7,16 @@ echo "enterprise init: syncing service user email"
 echo "enterprise init: ensuring service user exists"
 ./manage.py lms manage_user {{ ENTERPRISE_USER }} {{ ENTERPRISE_USER }}@openedx --staff --superuser --unusable-password
 
+echo "enterprise init: creating Enterprise Backend Service OAuth client"
+./manage.py lms create_dot_application \
+    --grant-type client-credentials \
+    --client-id {{ ENTERPRISE_BACKEND_SERVICE_EDX_OAUTH2_KEY }} \
+    --client-secret {{ ENTERPRISE_BACKEND_SERVICE_EDX_OAUTH2_SECRET }} \
+    --scopes user_id \
+    --skip-authorization \
+    --update \
+    enterprise-backend-service \
+    {{ ENTERPRISE_USER }}
+
 echo "enterprise init: show enterprise app migrations"
 ./manage.py lms showmigrations enterprise

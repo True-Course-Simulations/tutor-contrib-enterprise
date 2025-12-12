@@ -12,11 +12,19 @@ PACKAGE_NAME = "tutorenterprise"
 ########################################
 # CONFIGURATION
 ########################################
+hooks.Filters.CONFIG_UNIQUE.add_items(
+    [
+        # Secret for the enterprise backend service OAuth client
+        ("ENTERPRISE_BACKEND_SERVICE_EDX_OAUTH2_SECRET", "{{ 8|random_string }}"),
+    ]
+)
 
 hooks.Filters.CONFIG_DEFAULTS.add_items(
     [
         ("ENTERPRISE_VERSION", __version__),
         ("ENTERPRISE_USER", "enterprise"),
+        # OAuth client id for the enterprise backend service
+        ("ENTERPRISE_BACKEND_SERVICE_EDX_OAUTH2_KEY", "enterprise-backend-service-key"),
     ]
 )
 
