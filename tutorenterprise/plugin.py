@@ -63,3 +63,27 @@ patches_dir = importlib_resources.files(PACKAGE_NAME) / "patches"
 for path in glob(str(patches_dir / "*")):
     with open(path, encoding="utf-8") as patch_file:
         hooks.Filters.ENV_PATCHES.add_item((os.path.basename(path), patch_file.read()))
+
+
+########################################
+# MFE APPS
+########################################
+from tutormfe.hooks import MFE_APPS
+
+@MFE_APPS.add()
+def add_enterprise_mfes(mfes):
+    # Enterprise Admin Portal
+    mfes["admin-portal"] = {
+        "repository": "https://github.com/openedx/frontend-app-admin-portal.git",
+        "port": 8734,
+        "version": "master",
+    }
+
+    # Enterprise Learner Portal
+    mfes["learner-portal-enterprise"] = {
+        "repository": "https://github.com/openedx/frontend-app-learner-portal-enterprise.git",
+        "port": 8735,
+        "version": "master",
+    }
+
+    return mfes
