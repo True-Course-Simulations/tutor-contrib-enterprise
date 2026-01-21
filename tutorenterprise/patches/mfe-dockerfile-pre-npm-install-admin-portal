@@ -1,1 +1,2 @@
 COPY --from=admin-portal-src /packages /openedx/app/packages
+RUN npm install --package-lock-only --no-audit --no-fund --registry=$NPM_REGISTRY @openedx/frontend-plugin-framework
