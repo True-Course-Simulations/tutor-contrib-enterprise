@@ -27,10 +27,11 @@ ABOUT = load_about()
 setup(
     name="tutor-contrib-enterprise",
     version=ABOUT["__version__"],
-    url="https://github.com/Dicey-Tech/tutor-contrib-enterprise",
+    url="https://github.com/True-Course-Simulations/tutor-contrib-enterprise",
     project_urls={
-        "Code": "https://github.com/Dicey-Tech/tutor-contrib-enterprise",
-        "Issue tracker": "https://github.com/Dicey-Tech/tutor-contrib-enterprise/issues",
+        "Code": "https://github.com/True-Course-Simulations/tutor-contrib-enterprise",
+        "Issue tracker": "https://github.com/True-Course-Simulations/tutor-contrib-enterprise/issues",
+        "Upstream (original plugin)": "https://github.com/Dicey-Tech/tutor-contrib-enterprise",
     },
     license="AGPLv3",
     author="Sofiane Bebert",
