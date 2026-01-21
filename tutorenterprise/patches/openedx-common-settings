@@ -1,3 +1,28 @@
 ENTERPRISE_ALL_SERVICE_USERNAMES = ["{{ ENTERPRISE_USER }}"]
 
 ENTERPRISE_SERVICE_WORKER_USERNAME = "{{ ENTERPRISE_USER }}"
+
+# --- Enterprise portal MFEs (learner/admin) runtime config overrides ---
+
+MFE_CONFIG_OVERRIDES = globals().get("MFE_CONFIG_OVERRIDES", {})
+
+MFE_CONFIG_OVERRIDES.setdefault("learner-portal-enterprise", {}).update({
+    "ENTERPRISE_CATALOG_BASE_URL": "{% if ENABLE_HTTPS %}https{% else %}http{% endif %}://{{ ENTERPRISECATALOG_HOST }}",
+    "LICENSE_MANAGER_BASE_URL": "{% if ENABLE_HTTPS %}https{% else %}http{% endif %}://{{ LICENSE_MANAGER_HOST }}",
+
+    "FEATURE_ENROLL_WITH_ENTERPRISE_OFFERS": "false",
+    "FEATURE_ENROLL_WITH_CODES": "false",
+    "FEATURE_ENABLE_AUTO_APPLIED_LICENSES": "false",
+    "FEATURE_ENABLE_TOP_DOWN_ASSIGNMENT": "false",
+    "FEATURE_ENABLE_EMET_REDEMPTION": "false",
+})
+
+MFE_CONFIG_OVERRIDES.setdefault("admin-portal", {}).update({
+    # Disable ecommerce/coupons
+    "ECOMMERCE_BASE_URL": "",
+    
+    "ENTERPRISE_CATALOG_BASE_URL": "{% if ENABLE_HTTPS %}https{% else %}http{% endif %}://{{ ENTERPRISECATALOG_HOST }}",
+    "LICENSE_MANAGER_BASE_URL": "{% if ENABLE_HTTPS %}https{% else %}http{% endif %}://{{ LICENSE_MANAGER_HOST }}",
+
+    "FEATURE_LEARNER_CREDIT_MANAGEMENT": False,
+})
