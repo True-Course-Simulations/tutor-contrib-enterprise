@@ -74,9 +74,11 @@ from tutormfe.hooks import MFE_APPS
 def add_enterprise_mfes(mfes):
     # Enterprise Admin Portal
     mfes["admin-portal"] = {
-        "repository": "https://github.com/openedx/frontend-app-admin-portal.git",
+        #"repository": "https://github.com/openedx/frontend-app-admin-portal.git",
+        "repository": "https://github.com/True-Course-Simulations/frontend-app-admin-portal.git", # Added Company fork to work on fixing some config issues 
         "port": 8734,
-        "version": "master",
+        #"version": "master",
+        "version": "fix/admin-portal-runtime-config",
     }
 
     # Enterprise Learner Portal
