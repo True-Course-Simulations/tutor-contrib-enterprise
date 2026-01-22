@@ -18,7 +18,7 @@ MFE_CONFIG_OVERRIDES.setdefault("learner-portal-enterprise", {}).update({
 })
 
 MFE_CONFIG_OVERRIDES.setdefault("admin-portal", {}).update({
-    "ECOMMERCE_BASE_URL": "{% if ENABLE_HTTPS %}https{% else %}http{% endif %}://{{ ECOMMERCE_HOST }}",
+    "ECOMMERCE_BASE_URL": "{% if ECOMMERCE_HOST is defined and ECOMMERCE_HOST %}{% if ENABLE_HTTPS %}https{% else %}http{% endif %}://{{ ECOMMERCE_HOST }}{% else %}{% endif %}",
     "ENTERPRISE_ACCESS_BASE_URL : "{% if ENABLE_HTTPS %}https{% else %}http{% endif %}://{{ ENTERPRISE_ACCESS_HOST }}",
     "ENTERPRISE_CATALOG_BASE_URL": "{% if ENABLE_HTTPS %}https{% else %}http{% endif %}://{{ ENTERPRISECATALOG_HOST }}",
     "LICENSE_MANAGER_BASE_URL": "{% if ENABLE_HTTPS %}https{% else %}http{% endif %}://{{ LICENSE_MANAGER_HOST }}",
